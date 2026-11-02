@@ -1,0 +1,26 @@
+{
+  "name": "lift",
+  "version": "0.1.0",
+  "description": "Lift – copy text from any part of a web page",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "assets": "node scripts/copy-tesseract.mjs",
+    "icons": "node scripts/make-icons.mjs",
+    "predev": "npm run assets",
+    "dev": "vite",
+    "prebuild": "npm run assets",
+    "build": "tsc --noEmit && vite build",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "tesseract.js": "^7.0.0"
+  },
+  "devDependencies": {
+    "@crxjs/vite-plugin": "^3.0.0",
+    "@tesseract.js-data/eng": "^1.0.0",
+    "@types/chrome": "^0.3.7",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5"
+  }
+}

@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Lift</title>
+    <link rel="stylesheet" href="./popup.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Lift</h1>
+      <p class="subtitle">Copy text from any part of a page</p>
+    </header>
+
+    <button id="capture" class="primary">Select area</button>
+    <p class="shortcut">or press <kbd id="shortcut">Alt+Shift+S</kbd></p>
+
+    <section>
+      <div class="section-header">
+        <h2>Recent</h2>
+        <button id="clear" class="link" hidden>Clear</button>
+      </div>
+      <ul id="history"></ul>
+      <p id="empty" class="empty">Nothing captured yet.</p>
+    </section>
+
+    <script type="module" src="./popup.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+:host {
+  all: initial;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  cursor: crosshair;
+  background: rgba(15, 23, 42, 0.35);
+}
+
+.selection {
+  position: fixed;
+  display: none;
+  border: 2px solid #38bdf8;
+  /* Huge outer shadow darkens everything except the selected box. */
+  box-shadow: 0 0 0 100vmax rgba(15, 23, 42, 0.35);
+  pointer-events: none;
+}
+
+.backdrop.selecting {
+  background: transparent;
+}
+
+.hint {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: #0f172a;
+  color: #f8fafc;
+  font: 13px/1.4 system-ui, sans-serif;
+  pointer-events: none;
+}
+
+.toast {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 2147483647;
+  max-width: 320px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: #0f172a;
+  color: #f8fafc;
+  font: 13px/1.4 system-ui, sans-serif;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  white-space: pre-wrap;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+.toast.success {
+  border-left: 4px solid #22c55e;
+}
+
+.toast.error {
+  border-left: 4px solid #ef4444;
+}
+
+.toast.info {
+  border-left: 4px solid #38bdf8;
+}
