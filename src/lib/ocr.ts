@@ -25,12 +25,13 @@ export async function recognizeText(image: Blob): Promise<string> {
   return tidy(data.text)
 }
 
-/** Trims trailing spaces on each line and collapses runs of blank lines. */
+/**
+ * Flattens OCR output into one line of plain text: Tesseract reproduces the
+ * image's line wraps, which are noise once pasted elsewhere.
+ */
 function tidy(text: string): string {
   return text
-    .split('\n')
-    .map((line) => line.trimEnd())
-    .join('\n')
-    .replace(/\n{3,}/g, '\n\n')
+    .replace(/(\p{L})-[ \t]*\n\s*(\p{Ll})/gu, '$1$2') // rejoin "exam-\nple"; leaves "2020-\n2021" alone
+    .replace(/\s+/g, ' ')
     .trim()
 }
